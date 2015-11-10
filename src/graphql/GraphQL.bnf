@@ -1,0 +1,85 @@
+{
+  parserClass="graphql.GraphQLParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="GraphQL"
+  psiImplClassSuffix="Impl"
+  psiPackage="graphql"
+  psiImplPackage="graphql.impl"
+
+  elementTypeHolderClass="graphql.GraphQLTypes"
+  elementTypeClass="graphql.GraphQLElementType"
+  tokenTypeClass="graphql.GraphQLTokenType"
+
+  tokens = [
+    STRING="regexp:\"[^\"]*\"|'[^']*'"
+    NUMBER="regexp:(\+|\-)?\p{Digit}*"
+    ID="regexp:\p{Alpha}\w*"
+
+    COMMA=","
+    COLON = ":"
+    BRACE1 = "{"
+    BRACE2 = "}"
+    PAREN1 = "("
+    PAREN2 = ")"
+
+    QUERY="query"
+    MUTATION="mutation"
+  ]
+}
+
+graphqlFile ::= definition*
+
+definition ::= operation_definition | fragment_definition
+
+operation_definition ::=  selection_set |
+  operation_type operation_name? variable_definitions? directive? selection_set
+  {pin(".*")=1}
+operation_name ::= ID
+operation_type ::= 'query' | 'mutation'
+
+selection_set ::= '{' selection* '}' {pin=1}
+selection ::= field | fragment_spread | inline_fragment
+field ::= alias? field_name arguments? directives? selection_set?
+field_name ::= ID
+
+arguments ::= '(' argument (','? argument)* ')' {pin=1}
+argument ::= argument_name ':' argument_value
+argument_name ::= ID
+argument_value ::= value
+
+alias ::= alias_name ':'
+alias_name ::= ID
+
+fragment_spread ::= '...' fragment_name directives?
+fragment_definition ::= 'fragment' fragment_name type_condition directives? selection_set
+fragment_name ::= ID
+inline_fragment ::= '...' type_condition? directives? selection_set
+
+type_condition ::= 'on' named_type
+
+private value ::= variable | int_value | float_value | string_value |
+  boolean_value | enum_value | list_value | object_value
+private int_value ::= NUMBER
+private float_value ::= NUMBER
+private string_value ::= '"' STRING '"'
+private boolean_value ::= 'true' | 'false'
+private enum_value ::= STRING
+private list_value ::= '[' value (','? value)* ']'
+private object_value ::= '{' object_field* '}'
+private object_field ::= field_name ':' value
+
+variable ::= '$' var_name
+var_name ::= ID
+variable_definitions ::= '(' variable_definition (','? variable_definition)* ')'
+variable_definition ::= variable ':' type default_value?
+default_value ::= '=' value
+
+type ::= named_type | list_type //TODO: NonNullTypes
+named_type ::= ID
+list_type ::= '[' type ']'
+
+directives ::= directive*
+directive ::= '@' directive_name arguments?
+directive_name ::= ID

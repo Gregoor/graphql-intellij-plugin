@@ -1,0 +1,20 @@
+<idea-plugin version="1">
+  <id>graphql</id>
+  <name>GraphQL</name>
+  <version>1.0</version>
+
+  <description><![CDATA[
+      <h1>PeekABOO</h1>
+    ]]></description>
+
+  <idea-version since-build="141.0"/>
+
+
+  <extensions defaultExtensionNs="com.intellij">
+    <fileTypeFactory implementation="graphql.GraphQLFileTypeFactory"/>
+    <lang.parserDefinition language="GraphQL" implementationClass="graphql.GraphQLParserDefinition"/>
+    <lang.syntaxHighlighterFactory key="GraphQL" implementationClass="graphql.GraphQLSyntaxHighlighterFactory"/>
+    <colorSettingsPage implementation="graphql.GraphQLColorSettingsPage"/>
+  </extensions>
+
+</idea-plugin>
