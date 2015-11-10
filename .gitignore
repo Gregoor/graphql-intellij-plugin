@@ -1,0 +1,5 @@
+gen/
+out/
+
+idea-flex.skeleton
+JFlex.jar
