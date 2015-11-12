@@ -31,6 +31,8 @@
     BANG="!"
 
     TYPE="type"
+    INTERFACE="interface"
+    INPUT="input"
     IMPLEMENTS="implements"
     QUERY="query"
     MUTATION="mutation"
@@ -46,11 +48,15 @@ graphqlFile ::= definition*
 
 definition ::= type_definition | operation_definition | fragment_definition
 
-type_definition ::= 'type' named_type interfaces? field_definitions {pin=1}
-interfaces ::= 'implements' named_type
-field_definitions ::= '{' field_definition (',' field_definition)* ','? '}'
+type_definition ::= ('type' | 'interface' | 'input') named_type interfaces?
+  field_definitions {pin=1}
+interfaces ::= 'implements' named_type {pin=1}
+field_definitions ::= '{' field_definition (','? field_definition)* ','? '}'
   {pin=1}
-field_definition ::= field_name ':' named_type '!'?
+field_definition ::= field_name argument_definitions? ':' type_ref {pin=1}
+argument_definitions ::= '(' argument_definition (','? argument_definition)*
+  ','? ')' {pin=1}
+argument_definition ::= ('input' | 'query' | argument_name) ':' type_ref {pin=1}
 
 operation_definition ::=  selection_set |
   operation_type operation_name? variable_definitions? directive? selection_set
@@ -95,9 +101,9 @@ variable ::= '$' var_name {pin=1}
 var_name ::= ID
 default_value ::= '=' value
 
-type_ref ::= named_type | list_type //TODO: NonNullTypes
-named_type ::= ID
+type_ref ::= (list_type | named_type) '!'?
 list_type ::= '[' type_ref ']'
+named_type ::= ID
 
 directives ::= directive*
 directive ::= '@' directive_name arguments?

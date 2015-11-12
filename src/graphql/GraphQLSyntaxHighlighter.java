@@ -23,8 +23,8 @@ public class GraphQLSyntaxHighlighter extends SyntaxHighlighterBase {
 
     public static final Map<String, TextAttributesKey> KEYS = new HashMap<>();
     public static final Collection<IElementType> KEYWORDS = Arrays.asList(
-            GraphQLTypes.TYPE, GraphQLTypes.IMPLEMENTS,
-            GraphQLTypes.QUERY, GraphQLTypes.MUTATION,
+            GraphQLTypes.TYPE, GraphQLTypes.INTERFACE, GraphQLTypes.INPUT,
+            GraphQLTypes.IMPLEMENTS, GraphQLTypes.QUERY, GraphQLTypes.MUTATION,
             GraphQLTypes.FRAGMENT, GraphQLTypes.ON,
             GraphQLTypes.TRUE, GraphQLTypes.FALSE);
     public static final Collection<IElementType> BRACES = Arrays.asList(

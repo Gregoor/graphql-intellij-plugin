@@ -43,6 +43,8 @@ ID=[:letter:][a-zA-Z_0-9]*
   "$"                { return DOLLAR; }
   "!"                { return BANG; }
   "type"             { return TYPE; }
+  "interface"        { return INTERFACE; }
+  "input"            { return INPUT; }
   "implements"       { return IMPLEMENTS; }
   "query"            { return QUERY; }
   "mutation"         { return MUTATION; }
