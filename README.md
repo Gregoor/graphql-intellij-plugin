@@ -12,6 +12,6 @@ It's also possible to inject GraphQL into strings (Alt+Enter inside of the strin
 ![Injected into relay](images/in-relay.png)
 
 ## TODO:
-- comments
-- auto-inject GraphQL for string preceeded by `Relay.QL`
-- resolve references
+- [comments](../../issues/2)
+- [auto-inject GraphQL for string preceeded by `Relay.QL`](../../issues/3)
+- [resolve references](../../issues/4)
