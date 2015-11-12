@@ -9,9 +9,6 @@
             <li>syntax highlighting</li>
             <li>brace matching</li>
         </ul>
-
-        <a href="https://github.com/Gregoor/graphql-intellij-plugin">Code & TODOs</a>
-        <a href="https://github.com/Gregoor/graphql-intellij-plugin/issues">Issues</a>
         ]]></description>
 
     <idea-version since-build="141.0"/>
