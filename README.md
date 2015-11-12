@@ -1,5 +1,7 @@
 # GraphQL IntelliJ Plugin
 
+[Link to Plugin in Jetbrain's Repo](https://plugins.jetbrains.com/plugin/8038)
+
 - syntax highlighting
 - brace matching
 
