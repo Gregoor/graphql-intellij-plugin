@@ -15,9 +15,9 @@ public class GraphQLColorSettingsPage implements ColorSettingsPage {
 
     private static final AttributesDescriptor[] DESCRIPTORS = new AttributesDescriptor[]{
             new AttributesDescriptor("Operation type",
-                    GraphQLSyntaxHighlighter.OPERATION_TYPE),
+                    GraphQLSyntaxHighlighter.KEYS.get("OPERATION_TYPE")),
             new AttributesDescriptor("Field name",
-                    GraphQLSyntaxHighlighter.FIELD_NAME)
+                    GraphQLSyntaxHighlighter.KEYS.get("FIELD_NAME"))
     };
 
     @Nullable

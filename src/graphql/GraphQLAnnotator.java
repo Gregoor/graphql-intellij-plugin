@@ -18,17 +18,17 @@ public class GraphQLAnnotator implements Annotator {
     @Override
     public void annotate(@NotNull final PsiElement element, @NotNull AnnotationHolder holder) {
         PsiElement parent = element.getParent();
-        TextAttributesKey key = null;
+        String key = null;
 
         if (parent instanceof GraphQLOperationName) {
-            key = GraphQLSyntaxHighlighter.OPERATION_NAME;
+            key = "OPERATION_NAME";
         } else if (parent instanceof GraphQLFieldName) {
-            key = GraphQLSyntaxHighlighter.FIELD_NAME;
+            key = "FIELD_NAME";
         }
 
         if (key != null) {
-            Annotation annotation = holder.createInfoAnnotation(element, "");
-            annotation.setTextAttributes(key);
+            Annotation annotation = holder.createInfoAnnotation(element, null);
+            annotation.setTextAttributes(GraphQLSyntaxHighlighter.KEYS.get(key));
         }
     }
 
