@@ -4,8 +4,10 @@
 - brace matching
 
 ![GraphQL Syntax Highlighting](images/graphql-file.png)
+At the moment no separate color settings are available. The styles above can be achieved by manipulating the default language highlighting.
 
-Also possible to inject into strings (Alt+Enter inside of the string):
+It's also possible to inject GraphQL into strings (Alt+Enter inside of the string):
+
 ![Injected into relay](images/in-relay.png)
 
 ## TODO:
