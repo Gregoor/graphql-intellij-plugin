@@ -18,11 +18,11 @@
     ID="regexp:\p{Alpha}\w*"
 
     COMMA=","
-    COLON = ":"
-    BRACE1 = "{"
-    BRACE2 = "}"
-    PAREN1 = "("
-    PAREN2 = ")"
+    COLON=":"
+    BRACE1="{"
+    BRACE2="}"
+    PAREN1="("
+    PAREN2=")"
 
     QUERY="query"
     MUTATION="mutation"

@@ -24,31 +24,24 @@ WHITE_SPACE=({LINE_WS}|{EOL})+
 
 STRING=\"[^\"]*\"|'[^']*'
 NUMBER=(\+|\-)?[:digit:]*
-NAMED_TYPE=[:letter:][a-zA-Z_0-9]*
+ID=[:letter:][a-zA-Z_0-9]*
 
 %%
 <YYINITIAL> {
-  {WHITE_SPACE}       { return com.intellij.psi.TokenType.WHITE_SPACE; }
+  {WHITE_SPACE}      { return com.intellij.psi.TokenType.WHITE_SPACE; }
 
-  ","                 { return COMMA; }
-  ":"                 { return COLON; }
-  "{"                 { return BRACE1; }
-  "}"                 { return BRACE2; }
-  "("                 { return PAREN1; }
-  ")"                 { return PAREN2; }
-  "query"             { return QUERY; }
-  "mutation"          { return MUTATION; }
-  "OPERATION_NAME"    { return OPERATION_NAME; }
-  "FIELD_NAME"        { return FIELD_NAME; }
-  "ARGUMENT_NAME"     { return ARGUMENT_NAME; }
-  "ALIAS_NAME"        { return ALIAS_NAME; }
-  "FRAGMENT_NAME"     { return FRAGMENT_NAME; }
-  "VAR_NAME"          { return VAR_NAME; }
-  "DIRECTIVE_NAME"    { return DIRECTIVE_NAME; }
+  ","                { return COMMA; }
+  ":"                { return COLON; }
+  "{"                { return BRACE1; }
+  "}"                { return BRACE2; }
+  "("                { return PAREN1; }
+  ")"                { return PAREN2; }
+  "query"            { return QUERY; }
+  "mutation"         { return MUTATION; }
 
-  {STRING}            { return STRING; }
-  {NUMBER}            { return NUMBER; }
-  {NAMED_TYPE}        { return NAMED_TYPE; }
+  {STRING}           { return STRING; }
+  {NUMBER}           { return NUMBER; }
+  {ID}               { return ID; }
 
   [^] { return com.intellij.psi.TokenType.BAD_CHARACTER; }
 }

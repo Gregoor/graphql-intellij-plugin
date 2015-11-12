@@ -15,6 +15,7 @@
     <lang.parserDefinition language="GraphQL" implementationClass="graphql.GraphQLParserDefinition"/>
     <lang.syntaxHighlighterFactory key="GraphQL" implementationClass="graphql.GraphQLSyntaxHighlighterFactory"/>
     <colorSettingsPage implementation="graphql.GraphQLColorSettingsPage"/>
+    <annotator language="GraphQL" implementationClass="graphql.GraphQLAnnotator"/>
   </extensions>
 
 </idea-plugin>

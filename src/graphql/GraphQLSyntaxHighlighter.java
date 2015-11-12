@@ -16,18 +16,18 @@ import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAtt
 public class GraphQLSyntaxHighlighter extends SyntaxHighlighterBase {
 
     public static final TextAttributesKey OPERATION_TYPE =
-            createTextAttributesKey("OPERATION_TYPE", DefaultLanguageHighlighterColors.KEYWORD);
+            createTextAttributesKey("OPERATION_TYPE",
+                    DefaultLanguageHighlighterColors.KEYWORD);
+    public static final TextAttributesKey OPERATION_NAME =
+            createTextAttributesKey("OPERATION_NAME",
+                    DefaultLanguageHighlighterColors.CLASS_NAME);
     public static final TextAttributesKey FIELD_NAME =
-            createTextAttributesKey("FIELD_NAME", DefaultLanguageHighlighterColors.INSTANCE_FIELD);
+            createTextAttributesKey("FIELD_NAME",
+                    DefaultLanguageHighlighterColors.INSTANCE_FIELD);
+    public static final TextAttributesKey BAD_CHAR =
+            createTextAttributesKey("BAD_CHARACTER",
+                    HighlighterColors.BAD_CHARACTER);
 
-    private static final TextAttributesKey[] EMPTY_KEYS = new TextAttributesKey[0];
-    private static final TextAttributesKey[] BAD_CHAR_KEYS =
-            new TextAttributesKey[]{createTextAttributesKey("BAD_CHARACTER",
-                    HighlighterColors.BAD_CHARACTER)};
-    private static final TextAttributesKey[] OPERATION_TYPE_KEYS =
-            new TextAttributesKey[]{OPERATION_TYPE};
-    private static final TextAttributesKey[] FIELD_NAME_KEYS =
-            new TextAttributesKey[]{FIELD_NAME};
 
     @NotNull
     @Override
@@ -38,15 +38,16 @@ public class GraphQLSyntaxHighlighter extends SyntaxHighlighterBase {
     @NotNull
     @Override
     public TextAttributesKey[] getTokenHighlights(IElementType tokenType) {
+        TextAttributesKey key = null;
         if (Arrays.asList(GraphQLTypes.QUERY, GraphQLTypes.MUTATION)
                 .contains(tokenType)) {
-            return OPERATION_TYPE_KEYS;
+            key = OPERATION_TYPE;
         } else if (tokenType.equals(GraphQLTypes.FIELD_NAME)) {
-            return FIELD_NAME_KEYS;
+            key = FIELD_NAME;
         } else if (tokenType.equals(TokenType.BAD_CHARACTER)) {
-            return BAD_CHAR_KEYS;
+            key = BAD_CHAR;
         }
-        return EMPTY_KEYS;
+        return pack(key);
     }
 
 }
