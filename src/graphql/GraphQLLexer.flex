@@ -32,12 +32,25 @@ ID=[:letter:][a-zA-Z_0-9]*
 
   ","                { return COMMA; }
   ":"                { return COLON; }
+  "="                { return EQUALS; }
   "{"                { return BRACE1; }
   "}"                { return BRACE2; }
   "("                { return PAREN1; }
   ")"                { return PAREN2; }
+  "["                { return BRACKET1; }
+  "]"                { return BRACKET2; }
+  "@"                { return AT; }
+  "$"                { return DOLLAR; }
+  "!"                { return BANG; }
+  "type"             { return TYPE; }
+  "implements"       { return IMPLEMENTS; }
   "query"            { return QUERY; }
   "mutation"         { return MUTATION; }
+  "fragment"         { return FRAGMENT; }
+  "..."              { return SPREAD; }
+  "on"               { return ON; }
+  "true"             { return TRUE; }
+  "false"            { return FALSE; }
 
   {STRING}           { return STRING; }
   {NUMBER}           { return NUMBER; }

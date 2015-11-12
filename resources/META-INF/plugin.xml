@@ -1,21 +1,39 @@
 <idea-plugin version="1">
-  <id>graphql</id>
-  <name>GraphQL</name>
-  <version>1.0</version>
+    <id>graphql</id>
+    <name>GraphQL</name>
+    <version>1.0</version>
 
-  <description><![CDATA[
-      <h1>PeekABOO</h1>
-    ]]></description>
+    <description><![CDATA[
+        <ul>
+            <li>syntax highlighting</li>
+            <li>brace matching</li>
+        </ul>
 
-  <idea-version since-build="141.0"/>
+        <h2>TODO:</h2>
+        <ul>
+            <li>comments</li>
+            <li>resolve references</li>
+        </ul>
+
+        <a href="https://github.com/Gregoor/graphql-intellij-plugin">Code</a>
+        <a href="https://github.com/Gregoor/graphql-intellij-plugin/issues">Issues</a>
+        ]]></description>
+
+    <idea-version since-build="141.0"/>
 
 
-  <extensions defaultExtensionNs="com.intellij">
-    <fileTypeFactory implementation="graphql.GraphQLFileTypeFactory"/>
-    <lang.parserDefinition language="GraphQL" implementationClass="graphql.GraphQLParserDefinition"/>
-    <lang.syntaxHighlighterFactory key="GraphQL" implementationClass="graphql.GraphQLSyntaxHighlighterFactory"/>
-    <colorSettingsPage implementation="graphql.GraphQLColorSettingsPage"/>
-    <annotator language="GraphQL" implementationClass="graphql.GraphQLAnnotator"/>
-  </extensions>
+    <extensions defaultExtensionNs="com.intellij">
+        <fileTypeFactory implementation="graphql.GraphQLFileTypeFactory"/>
+        <lang.parserDefinition language="GraphQL"
+                               implementationClass="graphql.GraphQLParserDefinition"/>
+        <lang.syntaxHighlighterFactory key="GraphQL"
+                                       implementationClass="graphql.GraphQLSyntaxHighlighterFactory"/>
+        <annotator language="GraphQL"
+                   implementationClass="graphql.GraphQLAnnotator"/>
+        <lang.commenter language="GraphQL"
+                        implementationClass="graphql.GraphQLCommenter"/>
+        <lang.braceMatcher language="GraphQL"
+                           implementationClass="graphql.GraphQLPairedBraceMatcher"/>
+    </extensions>
 
 </idea-plugin>
