@@ -9,13 +9,7 @@
             <li>brace matching</li>
         </ul>
 
-        <h2>TODO:</h2>
-        <ul>
-            <li>comments</li>
-            <li>resolve references</li>
-        </ul>
-
-        <a href="https://github.com/Gregoor/graphql-intellij-plugin">Code</a>
+        <a href="https://github.com/Gregoor/graphql-intellij-plugin">Code & TODOs</a>
         <a href="https://github.com/Gregoor/graphql-intellij-plugin/issues">Issues</a>
         ]]></description>
 

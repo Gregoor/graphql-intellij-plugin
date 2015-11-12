@@ -1,4 +1,4 @@
-# GraphQL Intellij Plugin
+# GraphQL IntelliJ Plugin
 
 - syntax highlighting
 - brace matching
