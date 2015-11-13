@@ -1,7 +1,7 @@
 <idea-plugin version="1">
     <id>graphql</id>
     <name>GraphQL</name>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <vendor email="gregorwbr+code@gmail.com"/>
 
     <description><![CDATA[
@@ -9,10 +9,31 @@
             <li>syntax highlighting</li>
             <li>brace matching</li>
         </ul>
+        <a href="https://github.com/Gregoor/graphql-intellij-plugin">
+            Code & TODOs
+        </a>
+        <br>
+        <a href="https://github.com/Gregoor/graphql-intellij-plugin/issues">
+            Issues
+        </a>
         ]]></description>
 
-    <idea-version since-build="141.0"/>
+    <change-notes>
+        <![CDATA[
+          <p>
+              <strong>1.0.1</strong><br>
+              Support all the IntelliJ products
+          </p>
+          <p>
+              <strong>1.0.0</strong><br>
+              Initial version
+          </p>
+          ]]>
+    </change-notes>
 
+    <idea-version since-build="141.1550"/>
+
+    <depends>com.intellij.modules.lang</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="graphql.GraphQLFileTypeFactory"/>
