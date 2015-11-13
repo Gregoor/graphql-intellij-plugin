@@ -22,7 +22,7 @@ EOL="\r"|"\n"|"\r\n"
 LINE_WS=[\ \t\f]
 WHITE_SPACE=({LINE_WS}|{EOL})+
 
-STRING=\"[^\"]*\"|'[^']*'
+STRING=\"[^\"]*\"
 NUMBER=(\+|\-)?[:digit:]*
 ID=[:letter:][a-zA-Z_0-9]*
 

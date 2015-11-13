@@ -13,7 +13,7 @@
   tokenTypeClass="graphql.GraphQLTokenType"
 
   tokens = [
-    STRING="regexp:\"[^\"]*\"|'[^']*'"
+    STRING="regexp:\"[^\"]*\""
     NUMBER="regexp:(\+|\-)?\p{Digit}*"
     ID="regexp:\p{Alpha}\w*"
 
@@ -89,7 +89,7 @@ type_condition ::= 'on' named_type
 
 value ::= variable | NUMBER | string_value |
   boolean_value | enum_value | list_value | object_value
-string_value ::= '"' STRING '"'
+string_value ::= STRING
 boolean_value ::= 'true' | 'false'
 private enum_value ::= STRING
 list_value ::= '[' value (','? value)* ','? ']' {pin=1}
