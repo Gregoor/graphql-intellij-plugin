@@ -19,7 +19,8 @@ public class GraphQLLanguageInjector implements LanguageInjector {
         if (host.getLanguage().isKindOf(JavaScriptLanguage) &&
                 host.getClass().getSimpleName().equals(TEMPLATE_STRING)) {
             String hostText = host.getText();
-            if (hostText.startsWith(prefix) && hostText.endsWith(suffix)) {
+            if (!hostText.contains("${") &&
+                    hostText.startsWith(prefix) && hostText.endsWith(suffix)) {
                 injectedLanguagePlaces.addPlace(
                         GraphQLLanguage.INSTANCE,
                         new TextRange(
