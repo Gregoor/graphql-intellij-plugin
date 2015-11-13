@@ -1,13 +1,14 @@
 <idea-plugin version="1">
     <id>graphql</id>
     <name>GraphQL</name>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <vendor email="gregorwbr+code@gmail.com"/>
 
     <description><![CDATA[
         <ul>
             <li>syntax highlighting</li>
             <li>brace matching</li>
+            <li>auto-inject into Relay.QL strings</li>
         </ul>
         <a href="https://github.com/Gregoor/graphql-intellij-plugin">
             Code & TODOs
@@ -20,6 +21,10 @@
 
     <change-notes>
         <![CDATA[
+            <p>
+                <strong>1.0.2</strong><br>
+                Auto-inject into template strings contained by Relay.QL``
+            </p>
           <p>
               <strong>1.0.1</strong><br>
               Support all the IntelliJ products
@@ -31,7 +36,7 @@
           ]]>
     </change-notes>
 
-    <idea-version since-build="141.1550"/>
+    <idea-version since-build="141"/>
 
     <depends>com.intellij.modules.lang</depends>
 
@@ -39,7 +44,7 @@
         <fileTypeFactory implementation="graphql.GraphQLFileTypeFactory"/>
         <lang.parserDefinition language="GraphQL"
                                implementationClass="graphql.GraphQLParserDefinition"/>
-        <lang.syntaxHighlighterFactory key="GraphQL"
+        <lang.syntaxHighlighterFactory language="GraphQL"
                                        implementationClass="graphql.GraphQLSyntaxHighlighterFactory"/>
         <annotator language="GraphQL"
                    implementationClass="graphql.GraphQLAnnotator"/>
@@ -47,6 +52,7 @@
                         implementationClass="graphql.GraphQLCommenter"/>
         <lang.braceMatcher language="GraphQL"
                            implementationClass="graphql.GraphQLPairedBraceMatcher"/>
+        <languageInjector implementation="graphql.GraphQLLanguageInjector"/>
     </extensions>
 
 </idea-plugin>
