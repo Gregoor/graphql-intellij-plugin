@@ -69,7 +69,7 @@ operation_type ::= 'query' | 'mutation'
 selection_set ::= '{' selection (','? selection)* ','? '}' {pin=1}
 selection ::= field | fragment_spread | inline_fragment
 field ::= alias? field_name arguments? directives? selection_set? {pin=2}
-field_name ::= ID
+field_name ::= (keywords | ID)
 
 arguments ::= '(' argument (','? argument)* ','? ')' {pin=1}
 argument ::= argument_name ':' argument_value {pin=2}
