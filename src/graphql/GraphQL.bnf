@@ -58,7 +58,7 @@ field_definitions ::= '{' field_definition (','? field_definition)* ','? '}'
 field_definition ::= field_name argument_definitions? ':' type_ref {pin=1}
 argument_definitions ::= '(' argument_definition (','? argument_definition)*
   ','? ')' {pin=1}
-argument_definition ::= (keywords | argument_name) ':' type_ref {pin=1}
+argument_definition ::= argument_name ':' type_ref {pin=1}
 
 operation_definition ::=  selection_set |
   operation_type operation_name? variable_definitions? directive? selection_set
@@ -72,8 +72,8 @@ field ::= alias? field_name arguments? directives? selection_set? {pin=2}
 field_name ::= ID
 
 arguments ::= '(' argument (','? argument)* ','? ')' {pin=1}
-argument ::= (keywords | argument_name) ':' argument_value {pin=2}
-argument_name ::= ID
+argument ::= argument_name ':' argument_value {pin=2}
+argument_name ::= (keywords | ID)
 argument_value ::= value
 
 alias ::= alias_name ':'
@@ -100,7 +100,7 @@ variable_definitions ::= '(' variable_definition (','? variable_definition)* ','
   {pin=1}
 variable_definition ::= variable ':' type_ref default_value? {pin=1}
 variable ::= '$' var_name {pin=1}
-var_name ::= ID
+var_name ::= (keywords | ID)
 default_value ::= '=' value
 
 type_ref ::= (list_type | named_type) '!'?
