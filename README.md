@@ -1,6 +1,10 @@
-# GraphQL IntelliJ Plugin
+# GraphQL IntelliJ Plugin (abandoned!!!)
 
-[Link to Plugin in Jetbrain's Repo](https://plugins.jetbrains.com/plugin/8038)
+## I stopped development, as there is now a better plugin, that supports autocompletion:
+[https://github.com/jimkyndemeyer/js-graphql-intellij-plugin](https://github.com/jimkyndemeyer/js-graphql-intellij-plugin)
+
+___
+
 
 - syntax highlighting
 - brace matching
