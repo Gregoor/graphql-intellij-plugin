@@ -1,7 +1,7 @@
 <idea-plugin version="1">
     <id>graphql</id>
     <name>GraphQL</name>
-    <version>1.0.2</version>
+    <version>1.0.23</version>
     <vendor email="gregorwbr+code@gmail.com"/>
 
     <description><![CDATA[
