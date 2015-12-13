@@ -5,18 +5,8 @@
     <vendor email="gregorwbr+code@gmail.com"/>
 
     <description><![CDATA[
-        <ul>
-            <li>syntax highlighting</li>
-            <li>brace matching</li>
-            <li>auto-inject into Relay.QL strings</li>
-        </ul>
-        <a href="https://github.com/Gregoor/graphql-intellij-plugin">
-            Code & TODOs
-        </a>
-        <br>
-        <a href="https://github.com/Gregoor/graphql-intellij-plugin/issues">
-            Issues
-        </a>
+        I stopped development, as there is now a better plugin, that supports autocompletion.
+        Just search for "JS GraphQL".
         ]]></description>
 
     <change-notes>
@@ -55,4 +45,10 @@
         <languageInjector implementation="graphql.GraphQLLanguageInjector"/>
     </extensions>
 
+    <application-components>
+        <component>
+            <implementation-class>graphql.ApplicationComponentImpl
+            </implementation-class>
+        </component>
+    </application-components>
 </idea-plugin>
